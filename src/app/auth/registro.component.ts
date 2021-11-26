@@ -35,10 +35,10 @@ export class RegistroComponent implements OnInit {
     this.nuevoUsuario = new NuevoUsuario(this.nombre, this.email, this.password);
     this.authService.registro(this.nuevoUsuario).subscribe(
       data => {
-        console.log(data)
-        this.alertService.success("Cuenta creada", "Registro exitoso...")
-
-        this.router.navigate(['/login']);
+        if (data !== null) {
+          this.alertService.success("Cuenta creada", "Registro exitoso...")
+          this.router.navigate(['/login']);
+        }
       },
       err => {
         this.errMsj = err.error.mensaje;

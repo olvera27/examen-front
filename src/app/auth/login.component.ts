@@ -43,10 +43,16 @@ export class LoginComponent implements OnInit {
         this.roles = data.authorities;
         this.router.navigate(['/']);
       },
-      err => {        
+      err => {
         this.isLogged = false;
-        this.errMsj = err.error.mensaje;
-        this.alertService.error("Error!", this.errMsj);
+        this.errMsj = err.error.mensaje;        
+        if (err.error.codigo == -1) {          
+          this.alertService.warning("Advertencia!", this.errMsj, () => {            
+            this.router.navigate(['/actualiza', this.usuario]);
+          });
+        } else {
+          this.alertService.error("Error!", this.errMsj);
+        }         
       }
     );
   }

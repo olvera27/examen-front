@@ -31,5 +31,9 @@ export class AuthService {
   public registro(nuevoUsuario: NuevoUsuario): Observable<any> {
     return this.httpClient.post<any>(this.authURL + 'registro', nuevoUsuario, {headers:this.headers});
   }
+
+  public actualiza(actualizaUsuario: LoginUsuario): Observable<JwtDTO> {
+    return this.httpClient.post<any>(this.authURL + 'actualizaPassword', actualizaUsuario);
+  }
   
 }

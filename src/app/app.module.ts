@@ -12,6 +12,7 @@ import { AuthorizatedGuard } from './guards/authorized.guard';
 import { RegistroComponent } from './auth/registro.component';
 import { VigenciaComponent } from './vigencia/vigencia.component';
 import { MenuComponent } from './menu/menu.component';
+import { ActualizaComponent } from './auth/actualiza.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MenuComponent } from './menu/menu.component';
     RegistroComponent,
     HomeComponent,
     VigenciaComponent,
-    MenuComponent
+    MenuComponent,
+    ActualizaComponent
   ],
   imports: [
     BrowserModule,
